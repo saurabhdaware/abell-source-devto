@@ -25,7 +25,14 @@ async function addBlogContent({article, contentPath}) {
   }
 
   fs.writeFileSync(path.join(pathToArticleDir, 'index.md'), body_markdown);
-  fs.writeFileSync(path.join(pathToArticleDir, 'meta.json'), JSON.stringify(article, {}, 2));
+
+  const metaJSON = {
+    ...article,
+    $createdAt: article.created_at,
+    $modifiedAt: article.edited_at || article.created_at
+  }
+
+  fs.writeFileSync(path.join(pathToArticleDir, 'meta.json'), JSON.stringify(metaJSON, {}, 2));
 
   generateBlogs.push(article.slug);
 }
