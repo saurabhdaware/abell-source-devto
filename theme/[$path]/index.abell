@@ -1,0 +1,3 @@
+<body>
+{{ $importContent(`${meta.slug}/index.md`) }}
+</body>

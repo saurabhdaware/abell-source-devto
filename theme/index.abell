@@ -1,0 +1,11 @@
+<body>
+{{
+  $contentArray
+    .map(meta => `
+    <div>
+      ${meta.title}
+      <a href="${meta.$path}">${meta.$path}</a>
+    </div>
+    `)
+}}
+</body>
