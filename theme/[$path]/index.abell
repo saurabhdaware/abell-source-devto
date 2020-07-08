@@ -1,3 +1,3 @@
 <body>
-{{ $importContent(`${meta.slug}/index.md`) }}
+{{ $importContent(`${meta.$path}/index.md`) }}
 </body>
