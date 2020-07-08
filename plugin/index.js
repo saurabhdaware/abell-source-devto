@@ -8,11 +8,18 @@ const path = require('path');
  */
 
 const generateBlogs = [];
+let isPluginWorking = true;
 
 async function addBlogContent({article, contentPath}) {
-  console.log(`...Writing blog ${article.title}`);
+  console.log(`> Writing blog ${article.title}`);
   const { body_markdown } = await fetch(`https://dev.to/api/articles/${article.id}`).then(res => res.json());
+  
+  if (!fs.existsSync(contentPath)) {
+    fs.mkdirSync(contentPath);
+  }
+
   const pathToArticleDir = path.join(contentPath, article.slug);
+  
   if (!fs.existsSync(pathToArticleDir)) {
     fs.mkdirSync(pathToArticleDir);
   }
@@ -45,9 +52,16 @@ function rmdirRecursiveSync(pathToRemove) {
 }
 
 async function beforeBuild(programInfo) {
+  if (fs.existsSync(programInfo.abellConfigs.contentPath)) {
+    isPluginWorking = false;
+    console.log('\n\n>> The plugin does not support having existing content.');
+    console.log(`>> Remove the ${programInfo.abellConfigs.contentPath} directory for the source plugin to work.\n\n`)
+    return;
+  }
+
   const articles = await fetch(`https://dev.to/api/articles?username=${programInfo.abellConfigs.pluginConfig.devUsername}`).then(res => res.json());
 
-  for(const article of articles.slice(0, programInfo.abellConfigs.pluginConfig.maxArticles)) {
+  for(const article of articles.slice(0, programInfo.abellConfigs.pluginConfig.articleCount)) {
     await addBlogContent({
       article,
       contentPath: programInfo.abellConfigs.contentPath
@@ -56,8 +70,9 @@ async function beforeBuild(programInfo) {
 }
 
 function afterBuild(programInfo) {
-  for(const blogSlug of generateBlogs) {
-    rmdirRecursiveSync(path.join(programInfo.abellConfigs.contentPath, blogSlug));
+  if (isPluginWorking) {
+    console.log('Cleaning articles from local project...');
+    rmdirRecursiveSync(programInfo.abellConfigs.contentPath);
   }
 }
 

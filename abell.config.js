@@ -1,7 +1,7 @@
 module.exports = {
-  plugins: ['plugins/index.js'],
+  plugins: ['plugin/index.js'],
   pluginConfig: {
     devUsername: 'saurabhdaware',
-    maxArticles: 4
+    articleCount: 4
   }
 }
