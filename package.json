@@ -19,13 +19,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saurabhdaware/abell-devto-source-plugin.git"
+    "url": "git+https://github.com/saurabhdaware/abell-source-devto.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/saurabhdaware/abell-devto-source-plugin/issues"
+    "url": "https://github.com/saurabhdaware/abell-source-devto/issues"
   },
-  "homepage": "https://github.com/saurabhdaware/abell-devto-source-plugin#readme"
+  "homepage": "https://github.com/saurabhdaware/abell-source-devto#readme"
 }

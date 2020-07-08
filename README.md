@@ -1,4 +1,4 @@
-# abell-devto-source-plugin
+# abell-source-devto
 EXPERIMENTAL dev.to source plugin for [Abell](https://abelljs.org)
 
 ## Usage
