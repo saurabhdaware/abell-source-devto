@@ -1,8 +1,8 @@
 {
   "name": "abell-devto-source-plugin",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "EXPERIMENTAL dev.to source plugin for [Abell](https://abelljs.org)",
-  "main": "abell.config.js",
+  "main": "plugins/index.js",
   "dependencies": {
     "node-fetch": "^2.6.0"
   },
