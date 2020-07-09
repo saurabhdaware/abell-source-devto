@@ -7,10 +7,10 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "abell": "^0.3.3"
+    "abell": "^0.3.5"
   },
   "peerDependencies": {
-    "abell": "^0.3.3"
+    "abell": "^0.3.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

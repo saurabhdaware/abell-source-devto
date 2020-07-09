@@ -15,9 +15,12 @@ npm install --save-dev abell-source-devto
 // In abell.config.js
 module.exports = {
   plugins: ['abell-source-devto'],
-  pluginConfig: {
-    devUsername: 'saurabhdaware',
-    articleCount: 4
+  globalMeta: {
+    // ...
+    devMeta: {
+      username: 'saurabhdaware',
+      articleCount: 4
+    }
   }
 }
 ```
