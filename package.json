@@ -1,6 +1,6 @@
 {
   "name": "abell-source-devto",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "EXPERIMENTAL dev.to source plugin for [Abell](https://abelljs.org)",
   "main": "plugin/index.js",
   "dependencies": {

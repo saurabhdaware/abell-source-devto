@@ -11,7 +11,7 @@ const generateBlogs = [];
 
 async function addBlogContent({article, contentPath}) {
   console.log(`> Writing blog ${article.title}`);
-  const { body_html } = await fetch(`https://dev.to/api/articles/${article.id}`).then(res => res.json());
+  const { body_markdown } = await fetch(`https://dev.to/api/articles/${article.id}`).then(res => res.json());
   
   if (!fs.existsSync(contentPath)) {
     fs.mkdirSync(contentPath);
@@ -23,7 +23,7 @@ async function addBlogContent({article, contentPath}) {
     fs.mkdirSync(pathToArticleDir);
   }
 
-  fs.writeFileSync(path.join(pathToArticleDir, 'index.md'), body_html);
+  fs.writeFileSync(path.join(pathToArticleDir, 'index.md'), body_markdown);
 
   const metaJSON = {
     ...article,
