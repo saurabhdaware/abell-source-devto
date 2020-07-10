@@ -105,3 +105,4 @@ dist
 
 # DEV.to Articles Content
 content/
+.debug/
